@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>nin quiz</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: white;
+    }
+    header {
+      background: linear-gradient(to right, red, blue);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    .question {
+      border: 2px solid blue;
+      padding: 15px;
+      margin-top: 15px;
+    }
+    button {
+      background: blue;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+    }
+    button:hover {
+      background: red;
+    }
+    #score {
+      font-size: 22px;
+      color: green;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>nin quiz</header>
+
+<div class="container">
+
+  <h2>Hard & Twisted MCQ Quiz – Education</h2>
+
+  <form id="quizForm">
+
+    <div class="question">
+      <p><b>1.</b> Which situation best shows education failing its true purpose?</p>
+      <input type="radio" name="q1" value="A"> High literacy rate with low employment<br>
+      <input type="radio" name="q1" value="B"> Technological growth without innovation<br>
+      <input type="radio" name="q1" value="C"> Knowledge without ethical responsibility<br>
+      <input type="radio" name="q1" value="D"> Economic growth with social change
+    </div>
+
+    <div class="question">
+      <p><b>2.</b> Education can increase inequality when:</p>
+      <input type="radio" name="q2" value="A"> It is compulsory for all<br>
+      <input type="radio" name="q2" value="B"> It focuses only on examinations<br>
+      <input type="radio" name="q2" value="C"> Access is unequal among social groups<br>
+      <input type="radio" name="q2" value="D"> It promotes critical thinking
+    </div>
+
+    <div class="question">
+      <p><b>3.</b> A country has many degree holders but weak civic sense. This indicates:</p>
+      <input type="radio" name="q3" value="A"> Education is unnecessary<br>
+      <input type="radio" name="q3" value="B"> Moral education is neglected<br>
+      <input type="radio" name="q3" value="C"> Literacy rate is low<br>
+      <input type="radio" name="q3" value="D"> Economic development is slow
+    </div>
+
+    <div class="question">
+      <p><b>4.</b> Logical thinking gained through education mainly helps citizens to:</p>
+      <input type="radio" name="q4" value="A"> Earn higher salaries<br>
+      <input type="radio" name="q4" value="B"> Memorize information<br>
+      <input type="radio" name="q4" value="C"> Question policies and make informed choices<br>
+      <input type="radio" name="q4" value="D"> Avoid social responsibilities
+    </div>
+
+    <div class="question">
+      <p><b>5.</b> Why is education called an investment for a nation?</p>
+      <input type="radio" name="q5" value="A"> It produces immediate profit<br>
+      <input type="radio" name="q5" value="B"> It increases government spending<br>
+      <input type="radio" name="q5" value="C"> It develops skilled human capital<br>
+      <input type="radio" name="q5" value="D"> It reduces population growth
+    </div>
+
+    <button type="button" onclick="checkScore()">Submit Quiz</button>
+
+  </form>
+
+  <div id="score"></div>
+
+</div>
+
+<script>
+function checkScore() {
+  let score = 0;
+  const answers = {
+    q1: "C",
+    q2: "C",
+    q3: "B",
+    q4: "C",
+    q5: "C"
+  };
+
+  for (let q in answers) {
+    const selected = document.querySelector('input[name="' + q + '"]:checked');
+    if (selected && selected.value === answers[q]) {
+      score++;
+    }
+  }
+
+  document.getElementById("score").innerHTML =
+    "Your Score: " + score + " / 5";
+}
+</script>
+
+</body>
+</html>
